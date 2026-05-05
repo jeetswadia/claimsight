@@ -45,3 +45,7 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Personal planning docs (not part of the project)
+COMMIT_PLAN.md
+
