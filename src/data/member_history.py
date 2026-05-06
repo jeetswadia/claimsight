@@ -1,4 +1,5 @@
 """Retrieve member history (recent claims) for a given member."""
+
 from __future__ import annotations
 
 from datetime import date, timedelta

@@ -1,13 +1,12 @@
 """Lookup utilities for CPT, ICD-10, and NPI."""
-from __future__ import annotations
 
-from typing import Optional
+from __future__ import annotations
 
 from src.db.connection import get_connection
 from src.models.schemas import CodeDescription, Provider
 
 
-def lookup_cpt(code: str) -> Optional[CodeDescription]:
+def lookup_cpt(code: str) -> CodeDescription | None:
     if not code:
         return None
     with get_connection() as conn, conn.cursor() as cur:
@@ -19,7 +18,7 @@ def lookup_cpt(code: str) -> Optional[CodeDescription]:
     return CodeDescription(**row) if row else None
 
 
-def lookup_icd10(code: str) -> Optional[CodeDescription]:
+def lookup_icd10(code: str) -> CodeDescription | None:
     if not code:
         return None
     with get_connection() as conn, conn.cursor() as cur:
@@ -31,7 +30,7 @@ def lookup_icd10(code: str) -> Optional[CodeDescription]:
     return CodeDescription(**row) if row else None
 
 
-def lookup_provider(npi: str) -> Optional[Provider]:
+def lookup_provider(npi: str) -> Provider | None:
     if not npi:
         return None
     with get_connection() as conn, conn.cursor() as cur:

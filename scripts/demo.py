@@ -11,6 +11,7 @@ Usage:
     python scripts/demo.py --claim ambiguous     # edge case, likely route to human
     python scripts/demo.py --list                # show available scenarios
 """
+
 from __future__ import annotations
 
 import argparse
@@ -362,9 +363,7 @@ def run(scenario_key: str) -> int:
         return 1
 
     console.print()
-    console.print(
-        Rule(f"[bold cyan]ClaimSight Demo — {scenario_key}[/bold cyan]", style="cyan")
-    )
+    console.print(Rule(f"[bold cyan]ClaimSight Demo — {scenario_key}[/bold cyan]", style="cyan"))
     console.print(f"[dim]{SCENARIOS[scenario_key]['description']}[/dim]\n")
 
     packet = build_packet(scenario_key)
@@ -382,9 +381,7 @@ def run(scenario_key: str) -> int:
             finding = review(packet, chunks)
         except Exception as e:
             console.print(f"[red]Agent call failed: {e}[/red]")
-            console.print(
-                "[yellow]Hint: make sure GROQ_API_KEY is set in your .env file.[/yellow]"
-            )
+            console.print("[yellow]Hint: make sure GROQ_API_KEY is set in your .env file.[/yellow]")
             return 1
 
     console.print(render_finding(finding))

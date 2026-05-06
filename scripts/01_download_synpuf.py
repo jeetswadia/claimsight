@@ -15,6 +15,7 @@ synthetic claims.
 Usage:
     python scripts/01_download_synpuf.py
 """
+
 from __future__ import annotations
 
 import sys
@@ -75,9 +76,7 @@ def download(url: str, dest: Path) -> bool:
 
 def main() -> int:
     console.print("\n[bold cyan]Downloading SynPUF Sample 1[/bold cyan]")
-    console.print(
-        "[dim]If downloads fail, see module docstring for the Synthea fallback.[/dim]\n"
-    )
+    console.print("[dim]If downloads fail, see module docstring for the Synthea fallback.[/dim]\n")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     failures = []

@@ -1,21 +1,21 @@
 """Domain models for claims and adjudication."""
+
 from __future__ import annotations
 
 from datetime import date, datetime
 from decimal import Decimal
-from enum import Enum
-from typing import Optional
+from enum import StrEnum
 
 from pydantic import BaseModel, Field
 
 
-class Decision(str, Enum):
+class Decision(StrEnum):
     APPROVE = "approve"
     DENY = "deny"
     ROUTE = "route"  # route to human reviewer
 
 
-class Sex(str, Enum):
+class Sex(StrEnum):
     M = "M"
     F = "F"
     U = "U"
@@ -23,39 +23,39 @@ class Sex(str, Enum):
 
 class Member(BaseModel):
     member_id: str
-    birth_year: Optional[int] = None
-    sex: Optional[Sex] = None
-    state: Optional[str] = None
-    plan_type: Optional[str] = None
-    coverage_start: Optional[date] = None
-    coverage_end: Optional[date] = None
+    birth_year: int | None = None
+    sex: Sex | None = None
+    state: str | None = None
+    plan_type: str | None = None
+    coverage_start: date | None = None
+    coverage_end: date | None = None
 
 
 class Provider(BaseModel):
     npi: str
     provider_name: str
-    specialty: Optional[str] = None
-    state: Optional[str] = None
+    specialty: str | None = None
+    state: str | None = None
 
 
 class Claim(BaseModel):
     claim_id: str
     member_id: str
-    provider_npi: Optional[str] = None
+    provider_npi: str | None = None
     service_date: date
-    place_of_service: Optional[str] = None
-    primary_diagnosis: Optional[str] = None
+    place_of_service: str | None = None
+    primary_diagnosis: str | None = None
     secondary_diagnoses: list[str] = Field(default_factory=list)
-    procedure_code: Optional[str] = None
-    billed_amount: Optional[Decimal] = None
-    allowed_amount: Optional[Decimal] = None
-    submitted_at: Optional[datetime] = None
+    procedure_code: str | None = None
+    billed_amount: Decimal | None = None
+    allowed_amount: Decimal | None = None
+    submitted_at: datetime | None = None
 
 
 class CodeDescription(BaseModel):
     code: str
     description: str
-    category: Optional[str] = None
+    category: str | None = None
 
 
 class HistoricalClaim(BaseModel):
@@ -63,9 +63,9 @@ class HistoricalClaim(BaseModel):
 
     claim_id: str
     service_date: date
-    procedure_code: Optional[str] = None
-    procedure_description: Optional[str] = None
-    primary_diagnosis: Optional[str] = None
+    procedure_code: str | None = None
+    procedure_description: str | None = None
+    primary_diagnosis: str | None = None
 
 
 class ClaimPacket(BaseModel):
@@ -77,9 +77,9 @@ class ClaimPacket(BaseModel):
 
     claim: Claim
     member: Member
-    provider: Optional[Provider] = None
-    procedure: Optional[CodeDescription] = None
-    primary_diagnosis_desc: Optional[CodeDescription] = None
+    provider: Provider | None = None
+    procedure: CodeDescription | None = None
+    primary_diagnosis_desc: CodeDescription | None = None
     secondary_diagnosis_descs: list[CodeDescription] = Field(default_factory=list)
     member_history: list[HistoricalClaim] = Field(default_factory=list)
     history_lookback_days: int = 365

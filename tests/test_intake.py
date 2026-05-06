@@ -6,6 +6,7 @@ Run scripts/03_load_synpuf.py first, then run pytest.
 For now these are smoke tests — Week 1 ends with at least basic assertions
 that the pipeline runs end-to-end on real data.
 """
+
 from __future__ import annotations
 
 import os

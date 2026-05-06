@@ -14,6 +14,7 @@ Design principles enforced here:
 - If the guideline doesn't address the claim, the agent says so explicitly
   rather than hallucinating a decision.
 """
+
 from __future__ import annotations
 
 import json
@@ -112,7 +113,9 @@ def _build_user_prompt(packet: ClaimPacket, chunks: list[Citation]) -> str:
     return USER_PROMPT_TEMPLATE.format(
         procedure_code=procedure.code if procedure else (packet.claim.procedure_code or "unknown"),
         procedure_description=procedure.description if procedure else "unknown",
-        primary_diagnosis_code=primary_dx.code if primary_dx else (packet.claim.primary_diagnosis or "unknown"),
+        primary_diagnosis_code=(
+            primary_dx.code if primary_dx else (packet.claim.primary_diagnosis or "unknown")
+        ),
         primary_diagnosis_desc=primary_dx.description if primary_dx else "unknown",
         service_date=packet.claim.service_date,
         place_of_service=packet.claim.place_of_service or "unknown",

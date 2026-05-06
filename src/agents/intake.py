@@ -16,6 +16,7 @@ Design note: Specialist agents should never go back to the database for
 primitives they can get from the packet. This keeps the agent graph simple
 and makes evals reproducible.
 """
+
 from __future__ import annotations
 
 from src.data.code_lookup import lookup_cpt, lookup_icd10_batch, lookup_provider
@@ -61,11 +62,7 @@ def build_packet(claim_id: str, *, history_lookback_days: int = 365) -> ClaimPac
     provider = lookup_provider(claim.provider_npi) if claim.provider_npi else None
     procedure = lookup_cpt(claim.procedure_code) if claim.procedure_code else None
 
-    primary_dx = (
-        lookup_icd10_batch([claim.primary_diagnosis])
-        if claim.primary_diagnosis
-        else []
-    )
+    primary_dx = lookup_icd10_batch([claim.primary_diagnosis]) if claim.primary_diagnosis else []
     secondary_dxs = (
         lookup_icd10_batch(claim.secondary_diagnoses) if claim.secondary_diagnoses else []
     )

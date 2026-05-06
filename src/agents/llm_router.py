@@ -18,6 +18,7 @@ Usage:
     print(result.text)
     print(f"Cost: ${result.cost_usd:.4f}, Latency: {result.latency_ms}ms")
 """
+
 from __future__ import annotations
 
 import os

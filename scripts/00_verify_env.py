@@ -6,6 +6,7 @@ working development environment. If it fails, fix the failure before moving on.
 Usage:
     python scripts/00_verify_env.py
 """
+
 from __future__ import annotations
 
 import os
@@ -41,12 +42,11 @@ def check_database() -> Check:
         url = os.getenv("DATABASE_URL")
         if not url:
             return Check("Postgres connection", False, "DATABASE_URL not set")
-        with psycopg.connect(url, connect_timeout=5) as conn:
-            with conn.cursor() as cur:
-                cur.execute("SELECT version();")
-                version = cur.fetchone()[0].split(",")[0]
-                cur.execute("SELECT extname FROM pg_extension WHERE extname = 'vector';")
-                has_pgvector = cur.fetchone() is not None
+        with psycopg.connect(url, connect_timeout=5) as conn, conn.cursor() as cur:
+            cur.execute("SELECT version();")
+            version = cur.fetchone()[0].split(",")[0]
+            cur.execute("SELECT extname FROM pg_extension WHERE extname = 'vector';")
+            has_pgvector = cur.fetchone() is not None
         detail = f"{version}, pgvector={'yes' if has_pgvector else 'NO — enable it'}"
         return Check("Postgres connection", has_pgvector, detail)
     except Exception as e:
