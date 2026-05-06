@@ -1,0 +1,59 @@
+{
+  "claim_id": "CLM-DEMO-0001",
+  "member": {
+    "member_id": "MBR-DEMO-001",
+    "birth_year": 1962,
+    "sex": "F",
+    "state": "MA",
+    "plan_type": "PPO"
+  },
+  "provider": {
+    "npi": "1234567890",
+    "provider_name": "Boston Orthopedic Associates",
+    "specialty": "Orthopedic Surgery",
+    "state": "MA"
+  },
+  "service_date": "2026-04-15",
+  "place_of_service": "Outpatient Hospital",
+  "primary_diagnosis": {
+    "code": "M17.11",
+    "description": "Unilateral primary osteoarthritis, right knee"
+  },
+  "secondary_diagnoses": [
+    {
+      "code": "M25.561",
+      "description": "Pain in right knee"
+    }
+  ],
+  "procedure": {
+    "code": "73721",
+    "description": "MRI of lower extremity joint without contrast"
+  },
+  "billed_amount": 1850.00,
+  "history": [
+    {
+      "service_date": "2025-11-08",
+      "procedure_code": "99213",
+      "procedure_description": "Office visit, established patient, low complexity",
+      "primary_diagnosis": "M25.561"
+    },
+    {
+      "service_date": "2026-01-22",
+      "procedure_code": "73562",
+      "procedure_description": "X-ray of knee, three views",
+      "primary_diagnosis": "M17.11"
+    },
+    {
+      "service_date": "2026-02-14",
+      "procedure_code": "97110",
+      "procedure_description": "Therapeutic exercises (physical therapy session)",
+      "primary_diagnosis": "M17.11"
+    },
+    {
+      "service_date": "2026-03-21",
+      "procedure_code": "97110",
+      "procedure_description": "Therapeutic exercises (physical therapy session)",
+      "primary_diagnosis": "M17.11"
+    }
+  ]
+}
