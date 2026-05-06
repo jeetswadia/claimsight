@@ -70,6 +70,16 @@ target-version = "py311"
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "UP", "B", "SIM"]
 
+[tool.ruff.lint.per-file-ignores]
+# Mock LLM responses contain verbatim guideline quotes that must substring-match
+# the demo's chunk text. Breaking them with string concatenation would defeat
+# the citation-provenance matching the demo demonstrates.
+"src/agents/llm_router.py" = ["E501"]
+# Demo fixtures use verbatim CPT/ICD code descriptions that occasionally exceed 100 chars.
+"scripts/demo.py" = ["E501"]
+# Test cases include long fixture strings to exercise the parser.
+"tests/test_medical_necessity.py" = ["E501"]
+
 [tool.black]
 line-length = 100
 target-version = ["py311"]
