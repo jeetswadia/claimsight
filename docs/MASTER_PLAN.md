@@ -140,9 +140,3 @@ Fill in the metrics once they exist. Don't fake them.
 - **Weeks 4, 6, 8, 10:** Build-in-public posts with technical detail.
 - **Week 11:** Launch post + blog post on a Tuesday morning EST.
 - **Week 12:** HN Show post + r/MachineLearning if quality warrants.
-
-## What "done" means
-
-A recruiter visits my portfolio, watches the 90-second demo video, clicks the live demo, runs a sample claim, sees the agent trace, reads the writeup, and thinks: *this person has done senior agentic AI work, I want to talk to them*.
-
-That's the only success metric that matters.
