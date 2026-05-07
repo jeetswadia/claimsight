@@ -1,9 +1,8 @@
 # Changelog
 
-All notable changes to ClaimSight are documented in this file.
+All notable changes to ClaimSight are documented here.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
@@ -14,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CPT/ICD-10/NPI lookup utilities
 - Member history retrieval
 - Intake Agent (deterministic, non-LLM)
+- LLM router with two tiers (Groq for cheap, Anthropic for smart) and a deterministic mock fallback when keys are missing
+- Medical necessity agent with citation provenance back to retrieved chunks
+- End-to-end demo script with three scenarios (approve, deny, route) that runs without DB or API keys
 - Environment verification script
 - SynPUF download script with Synthea fallback
 - Architecture Decision Records (ADRs 0001-0004)

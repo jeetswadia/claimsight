@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-ADRs capture significant architectural decisions: what we chose, what we considered, and why we chose what we chose. They are append-only — when a decision changes, write a new ADR that supersedes the old one.
+ADRs capture significant architectural decisions: what I chose, what I considered, why I chose what I chose. Append-only. When a decision changes, I write a new ADR that supersedes the old one.
 
 ## Index
 
@@ -11,8 +11,6 @@ ADRs capture significant architectural decisions: what we chose, what we conside
 
 ## Format
 
-Each ADR follows this template:
-
 ```
 # ADR-NNNN: Short title
 
@@ -21,17 +19,17 @@ Status: Proposed | Accepted | Superseded by ADR-NNNN
 
 ## Context
 
-What problem are we solving? What constraints are in play?
+What problem am I solving? What constraints are in play?
 
 ## Decision
 
-What did we decide?
+What did I decide?
 
 ## Alternatives considered
 
-What else did we evaluate? Why didn't we pick those?
+What else did I evaluate? Why didn't I pick those?
 
 ## Consequences
 
-What does this enable? What does this make harder? What do we lose?
+What does this enable? What does this make harder? What do I lose?
 ```

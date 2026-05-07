@@ -1,15 +1,15 @@
-# Contributing to ClaimSight
+# Contributing
 
-Thanks for your interest. ClaimSight is primarily a portfolio project but issues, discussions, and PRs are welcome.
+Thanks for your interest. ClaimSight is primarily a portfolio project, but issues, discussions, and PRs are welcome.
 
 ## Ground rules
 
-1. **No real PHI.** Ever. Synthetic data only (CMS SynPUF, Synthea). Any PR that introduces or hints at real patient data will be rejected.
-2. **No overclaiming.** Don't add language calling this "production-ready." It is production-*shaped*. That distinction matters.
+1. **No real PHI.** Ever. Synthetic data only (CMS SynPUF, Synthea). Any PR that introduces or hints at real patient data gets rejected.
+2. **No overclaiming.** Don't add language calling this "production-ready." It's production-shaped. The distinction matters.
 3. **Tests for new code.** New modules need at least smoke tests. New agents need eval coverage.
 4. **Citations matter.** If an agent makes a claim, it must cite a source. No exceptions.
 
-## Development setup
+## Dev setup
 
 ```bash
 git clone https://github.com/jeetsswadia/claimsight.git
@@ -21,7 +21,7 @@ make verify
 
 ## Workflow
 
-1. Create a branch: `git checkout -b feat/short-description` or `fix/short-description`
+1. Branch: `git checkout -b feat/short-description` or `fix/short-description`
 2. Make your changes
 3. Run `make format && make lint && make test`
 4. Commit with a clear message (see below)
@@ -49,7 +49,7 @@ Keep the subject line under 72 characters. Use the body for the *why*.
 
 ## Reporting issues
 
-Use the issue templates. Please include:
+Use the issue templates. Include:
 
 - What you were trying to do
 - What happened

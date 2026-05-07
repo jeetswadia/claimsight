@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-If you find a security issue, please email the maintainer directly rather than opening a public issue.
+If you find a security issue, email me directly rather than opening a public issue.
 
 Contact: jeet.swadia@example.com (replace with real email before publishing)
 
@@ -12,11 +12,11 @@ This is a portfolio project, not a production service. Security expectations are
 
 - Don't commit secrets. The `.gitignore` and pre-commit hooks help, but ultimately the developer is responsible.
 - Don't introduce real PHI under any circumstances.
-- LLM prompts that could leak system internals (e.g., system prompts, internal tool schemas) should be reviewed before merging.
+- LLM prompts that could leak system internals (system prompts, internal tool schemas) should be reviewed before merging.
 
 ## What ClaimSight does NOT do
 
-- Authentication / authorization (no real users)
+- Authentication or authorization (no real users)
 - HIPAA compliance (no PHI involved)
 - Production-grade encryption at rest (relies on database provider defaults)
 
